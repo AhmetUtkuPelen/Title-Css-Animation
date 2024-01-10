@@ -1,0 +1,54 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+display: flex;
+align-items: center;
+min-height: 100vh;
+background: black;
+background-image: linear-gradient(to right,gray 1px,transparent 1px),linear-gradient(to bottom,black 1px,transparent1px);
+background-size: 5vh 5vh;
+}
+h2{
+color: white;
+font-size: 50px;
+font-weight: 800;
+padding: 0 100px;
+}
+h2 span{
+position: relative;
+color: rgba(255, 255, 255, 0.1);
+animation: displayText 9s infinite;
+animation-delay: calc(-3s*var(--i));
+}
+@keyframes displayText{
+    0%{
+        display: inline-block;
+    }
+    33%{
+      display: none;  
+    }
+}
+h2 span::before{
+content: attr(data-text);
+position: absolute;
+top: 0;
+left: 0;
+overflow: hidden;
+width: 100%;
+color: darkorange;
+border-right: 4px solid darkorange;
+filter: drop-shadow(0 0 5px darkorange) drop-shadow(0 0 5px darkorange);
+animation: animate 3s linear infinite;
+}
+@keyframes animate
+{
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
